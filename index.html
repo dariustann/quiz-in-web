@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Quiz Generator</title>
+</head>
+<body>
+
+<script>
+window.onload = function() {
+    var name = prompt("Enter your name:");
+    if (!name) return;     
+    var score = 0;
+    
+    for (var i = 0; i < 10; i++) {
+        var num1 = Math.floor(Math.random() * 1000) + 1;
+        var num2 = Math.floor(Math.random() * 1000) + 1;
+        var operator = ['+', '-', '*'][Math.floor(Math.random() * 3)];
+        var answer = prompt("Question " + (i + 1) + ": What is " + num1 + " " + operator + " " + num2 + "?");
+        if (answer === null) break; 
+        
+        var correctAnswer = eval(num1 + operator + num2);
+        if (parseInt(answer) === correctAnswer) {
+            score++;
+        }
+    }
+    alert("Hi " + name + "! Your total score is: " + score);
+}
+</script>
+
+</body>
+</html>
